@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 23:55:40 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/03 19:27:09 by lufrank          ###   ########.fr       */
+/*   Created: 2025/11/03 19:39:03 by lufrank           #+#    #+#             */
+/*   Updated: 2025/11/03 19:39:18 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	ft_memset(&s, 0, n);
-}
+	size_t	i;
+	size_t	dest_len;
+	size_t	src_len;
 
-int	main(void)
-{
-	char	a[5];
-	int		i;
-
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	if (size <= dest_len)
+		return (size + src_len);
 	i = 0;
-	ft_bzero(&a, 5);
-	while (a[i])
+	while (src[i] && (dest_len + i) < (size - 1))
 	{
-		printf("%c", a[i]);
+		dest[dest_len + i] = src[i];
 		i++;
 	}
-	return (0);
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
 }

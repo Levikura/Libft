@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 23:55:40 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/03 19:27:09 by lufrank          ###   ########.fr       */
+/*   Created: 2025/11/03 19:42:57 by lufrank           #+#    #+#             */
+/*   Updated: 2025/11/03 19:44:20 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_toupper(int c)
 {
-	ft_memset(&s, 0, n);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
 
-int	main(void)
-{
-	char	a[5];
-	int		i;
+// int main(void)
+// {
+// 	int	c;
 
-	i = 0;
-	ft_bzero(&a, 5);
-	while (a[i])
-	{
-		printf("%c", a[i]);
-		i++;
-	}
-	return (0);
-}
+// 	c = ft_toupper('a');
+// 	printf("%c\n", c);
+// 	return (0);
+// }

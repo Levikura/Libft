@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 23:55:40 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/03 19:27:09 by lufrank          ###   ########.fr       */
+/*   Created: 2025/11/03 19:09:36 by lufrank           #+#    #+#             */
+/*   Updated: 2025/11/03 19:27:00 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	ft_memset(&s, 0, n);
-}
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-int	main(void)
-{
-	char	a[5];
-	int		i;
-
-	i = 0;
-	ft_bzero(&a, 5);
-	while (a[i])
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (d > s)
 	{
-		printf("%c", a[i]);
-		i++;
+		i = n;
+		while (i-- > 0)
+			d[i] = s[i];
 	}
-	return (0);
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	return (dest);
 }
