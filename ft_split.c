@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 20:20:54 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/10 02:56:09 by lufrank          ###   ########.fr       */
+/*   Created: 2025/11/03 20:25:15 by lufrank           #+#    #+#             */
+/*   Updated: 2025/11/03 20:25:23 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+static size_t	count_words(const char *s, char c)
 {
-	void	*ptr;
+	size_t	count;
+	int		in_word;
 
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	count = 0;
+	in_word = 0;
+	while (*s)
+	{
+		if (*s != c && !in_word)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
+	}
+	return (count);
 }

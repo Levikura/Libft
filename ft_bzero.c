@@ -6,7 +6,7 @@
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 23:55:40 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/03 19:27:09 by lufrank          ###   ########.fr       */
+/*   Updated: 2025/11/10 02:36:34 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(&s, 0, n);
-}
+	size_t			i;
+	unsigned char	*ptr;
 
-int	main(void)
-{
-	char	a[5];
-	int		i;
-
+	ptr = (unsigned char *)s;
 	i = 0;
-	ft_bzero(&a, 5);
-	while (a[i])
+	while (i < n)
 	{
-		printf("%c", a[i]);
+		ptr[i] = 0;
 		i++;
 	}
-	return (0);
 }

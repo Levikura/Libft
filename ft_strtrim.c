@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 20:20:54 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/10 02:56:09 by lufrank          ###   ########.fr       */
+/*   Created: 2025/11/03 20:24:52 by lufrank           #+#    #+#             */
+/*   Updated: 2025/11/03 20:24:59 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	void	*ptr;
+	size_t	start;
+	size_t	end;
+	char	*trimmed;
 
-	ptr = malloc(count * size);
-	if (!ptr)
+	if (!s1 || !set)
 		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	start = 0;
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	trimmed = (char *)malloc((end - start + 1) * sizeof(char));
+	if (!trimmed)
+		return (NULL);
+	ft_strlcpy(trimmed, s1 + start, end - start + 1);
+	return (trimmed);
 }
