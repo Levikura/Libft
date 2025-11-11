@@ -6,13 +6,15 @@
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:25:57 by lufrank           #+#    #+#             */
-/*   Updated: 2025/10/25 22:44:16 by lufrank          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:34:47 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	return (c >= 32 && c <= 127);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
 
 // #include <stdio.h>

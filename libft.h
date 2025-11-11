@@ -6,7 +6,7 @@
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 22:36:31 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/10 05:56:11 by lufrank          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:49:27 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <string.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

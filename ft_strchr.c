@@ -6,7 +6,7 @@
 /*   By: lufrank <lufrank@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 19:45:30 by lufrank           #+#    #+#             */
-/*   Updated: 2025/11/03 20:18:12 by lufrank          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:32:48 by lufrank          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)s);
 		s++;
 	}
-	if (c == '\0')
+	if (*s == (char)c)
 		return ((char *)s);
 	return (NULL);
 }
